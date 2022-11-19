@@ -15,7 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Api(tags = "Customer Api")
@@ -39,7 +38,8 @@ public interface CustomerAPI {
                     content = {@Content(mediaType = "application/json"
                             , schema = @Schema(implementation = CustomerResponse.class))}),
             @ApiResponse(responseCode = "400", description = "Invalid input")
-            , @ApiResponse(responseCode = "409", description = "This Customer already exists")})
+            })
+    //, @ApiResponse(responseCode = "409", description = "This Customer already exists")
     @PostMapping("/customer")
     ResponseEntity<CustomerResponse> createCustomer(@ApiParam(required = true)
                                                     @Validated @RequestBody CustomerRequest customerRequest);

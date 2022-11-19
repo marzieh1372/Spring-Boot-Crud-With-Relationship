@@ -38,8 +38,7 @@ public interface ProductAPI {
             @ApiResponse(responseCode = "201", description = "OK!",
                     content = {@Content(mediaType = "application/json"
                             , schema = @Schema(implementation = ProductResponse.class))}),
-            @ApiResponse(responseCode = "400", description = "Invalid input")
-            , @ApiResponse(responseCode = "409", description = "This Product already exists")})
+            @ApiResponse(responseCode = "400", description = "Invalid input")})
     @PostMapping("/product")
     ResponseEntity<ProductResponse> createProduct(@ApiParam(required = true) @Validated @RequestBody
                                                           ProductRequest productRequest);

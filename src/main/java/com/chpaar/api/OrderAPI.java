@@ -39,7 +39,7 @@ public interface OrderAPI {
                     content = {@Content(mediaType = "application/json"
                             , schema = @Schema(implementation = OrderDto.class))}),
             @ApiResponse(responseCode = "400", description = "Invalid input")
-            , @ApiResponse(responseCode = "409", description = "This Order already exists")})
+           })
     @PostMapping("/order")
     ResponseEntity<OrderDto> createOrder(@ApiParam(required = true) @Validated @RequestBody
                                                       OrderRequest orderRequest);
