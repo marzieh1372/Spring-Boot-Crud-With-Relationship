@@ -3,6 +3,8 @@ package com.chpaar.model.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,8 +20,10 @@ public class Product {
     @Id
     @GeneratedValue
     private Long id;
+    @NotNull
     @Column
     private Double price;
+    @NotBlank
     @Column
     private String name;
 

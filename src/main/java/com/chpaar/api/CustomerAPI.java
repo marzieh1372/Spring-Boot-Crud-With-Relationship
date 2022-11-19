@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Api(tags = "Customer Api")
@@ -40,8 +41,8 @@ public interface CustomerAPI {
             @ApiResponse(responseCode = "400", description = "Invalid input")
             , @ApiResponse(responseCode = "409", description = "This Customer already exists")})
     @PostMapping("/customer")
-    ResponseEntity<CustomerResponse> createCustomer(@ApiParam(required = true)  @Validated
-                                                    @RequestBody CustomerRequest customerRequest);
+    ResponseEntity<CustomerResponse> createCustomer(@ApiParam(required = true)
+                                                    @Validated @RequestBody CustomerRequest customerRequest);
 
     //******************************************************************************************************************
     @Operation(summary = "Find customer by id")

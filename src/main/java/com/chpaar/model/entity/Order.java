@@ -3,6 +3,7 @@ package com.chpaar.model.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Builder
@@ -18,6 +19,7 @@ public class Order {
     @GeneratedValue
     @Column
     private Long id;
+    @NotNull
     @Column
     private Integer count;
 

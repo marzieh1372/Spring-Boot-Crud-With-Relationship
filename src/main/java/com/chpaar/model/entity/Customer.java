@@ -4,6 +4,10 @@ package com.chpaar.model.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,13 +25,17 @@ public class Customer {
     @GeneratedValue
     @Column
     private Long id;
-    @Column
+    @Max(500)
+    @Column(length = 500)
     private String description;
-    @Column
+    @NotBlank
+    @Column(nullable = false)
     private String email;
-    @Column
+    @Max(100)
+    @Column(length = 100)
     private String firstName;
-    @Column
+    @Max(100)
+    @Column(length = 100)
     private String lastName;
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
